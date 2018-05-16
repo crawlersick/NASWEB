@@ -37,7 +37,9 @@ $.each(json, function(i)
                 
                     var tmp=$('<a>')
                     .addClass('list-group-item list-group-item-action')
-                    .attr('href',"/l3/"+json[i]+"/"+eplist[j]).text(eplist[j])
+                    .attr('href',"/l3/"+json[i]+"/"+eplist[j])
+		    .attr('target',"_blank")
+	            .text(eplist[j])
                     aaa.append(tmp)
                 
                 }

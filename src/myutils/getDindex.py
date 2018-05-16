@@ -38,14 +38,15 @@ class SysSetting(object):
                 filename, file_extension = os.path.splitext(a)
                 if(file_extension in ['.mp4','.MP4','.MKV','.mkv']):
                 #print(file_extension)
-                    yield os.path.basename(a)
+                    yield a
 
     def updatedatamap(self,keyname):
         if keyname not in self.datamap:
             templist=[]
             it=self.getallplayfiles(keyname)
             for a in it:
-                templist.append(a)
+                tmpa=a.split(keyname+os.sep,1)
+                templist.append(tmpa[1].replace('/','-->'))
             self.datamap[keyname]=templist.copy()
     
 

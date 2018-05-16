@@ -26,6 +26,7 @@ def l2list(epname):
 
 @app.route('/l3/<foldername>/<epname>')
 def l3list(foldername,epname):
+    epname=epname.replace('-->',os.sep)
     
     filename=os.path.join("/static/Downloads/",foldername,epname)
     filename=urllib.parse.quote(filename)

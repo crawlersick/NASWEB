@@ -47,6 +47,7 @@ $.each(json, function(i)
 
 
         aaa.unbind("click")
+	return false
                         });
 });
 }

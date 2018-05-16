@@ -2,20 +2,20 @@ from pathlib import Path
 import os
 import re
 
-def singleton(cls,*args,**kw):
-    instances={}
-    def _singleton():
-        if cls not in instances:
-            instances[cls]=cls(*args,*kw)
-        return instances[cls]
-    return _singleton
-@singleton
+#   def singleton(cls,*args,**kw):
+#       instances={}
+#       def _singleton():
+#           if cls not in instances:
+#               instances[cls]=cls(*args,*kw)
+#           return instances[cls]
+#       return _singleton
+#   @singleton
 class SysSetting(object):
-    path="."
-    itemlist0=[]
-    datamap={}
-    home = str(Path.home())
-    target=os.path.join(home,"Downloads")
+    def __init__(self):
+        self.itemlist0=[]
+        self.datamap={}
+        self.home = str(Path.home())
+        self.target=os.path.join(self.home,"Downloads")
     def resetitems(self):
         self.itemlist0.clear()
         self.datamap.clear()
@@ -38,7 +38,7 @@ class SysSetting(object):
                 filename, file_extension = os.path.splitext(a)
                 if(file_extension in ['.mp4','.MP4','.MKV','.mkv']):
                 #print(file_extension)
-                    yield a
+                    yield os.path.basename(a)
 
     def updatedatamap(self,keyname):
         if keyname not in self.datamap:

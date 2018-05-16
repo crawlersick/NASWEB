@@ -1,6 +1,8 @@
 from flask import Flask,render_template,url_for
 from flask import jsonify
 import myutils.getDindex
+import os
+import urllib
 
 app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
@@ -22,3 +24,9 @@ def l2list(epname):
     a.updatedatamap(epname)
     return jsonify(a.datamap[epname])
 
+@app.route('/l3/<foldername>/<epname>')
+def l3list(foldername,epname):
+    
+    filename=os.path.join("/static/Downloads/",foldername,epname)
+    filename=urllib.parse.quote(filename)
+    return render_template('play.html',filename=filename)

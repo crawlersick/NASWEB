@@ -1,0 +1,14 @@
+<head>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.min.css')}}"></script>
+<script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+<script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+</head>
+<body>
+
+<video src={{ filename }} controls="controls" width="80%" height="80%" autoplay="autoplay">
+您的浏览器不支持 video 标签。
+</video>
+
+</body>

@@ -33,11 +33,11 @@ $.each(json, function(i)
         function(eplist){
             $.each(
             eplist,
-                function(i){
+                function(j){
                 
                     var tmp=$('<a>')
                     .addClass('list-group-item list-group-item-action')
-                    .attr('href',"#").text(eplist[i])
+                    .attr('href',"/l3/"+json[i]+"/"+eplist[j]).text(eplist[j])
                     aaa.append(tmp)
                 
                 }

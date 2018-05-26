@@ -30,7 +30,7 @@ def l3list(foldername,epname):
     
     filename=os.path.join("/static/Downloads/",foldername,epname)
     filename=urllib.parse.quote(filename)
-    return render_template('play.html',filename=filename)
+    return render_template('play.html',filename=filename,subname=filename+".vtt")
 
 
 if __name__ == '__main__':

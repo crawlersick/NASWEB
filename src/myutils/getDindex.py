@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 import re
+from myutils.filetimetest import listdir_bydate
 
 #   def singleton(cls,*args,**kw):
 #       instances={}
@@ -22,14 +23,14 @@ class SysSetting(object):
 
     def updateattr(self):
         if not self.itemlist0:
-            templist=os.listdir(self.target)
+            templist=listdir_bydate(self.target)
             for a in templist:
                 b=os.path.join(self.target,a)
                 if(os.path.isdir(b)):
                     self.itemlist0.append(a)
     def getallplayfiles(self,epname):
         vpath=os.path.join(self.target,epname)
-        lst=os.listdir(vpath)
+        lst=listdir_bydate(vpath)
         for a in lst:
             a=os.path.join(vpath,a)
             if(os.path.isdir(a)):
